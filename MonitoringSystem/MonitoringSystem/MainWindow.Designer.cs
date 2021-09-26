@@ -30,11 +30,11 @@ namespace MonitoringSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InputDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,15 +50,17 @@ namespace MonitoringSystem
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonSmthElse = new System.Windows.Forms.RadioButton();
             this.radioButtonLagrange = new System.Windows.Forms.RadioButton();
             this.radioButtonEmpty = new System.Windows.Forms.RadioButton();
+            this.degreeUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartConcentration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraphDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDeviation)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.degreeUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -112,16 +114,16 @@ namespace MonitoringSystem
             // 
             // chartConcentration
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartConcentration.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartArea1";
+            this.chartConcentration.ChartAreas.Add(chartArea5);
             this.chartConcentration.Location = new System.Drawing.Point(297, 79);
             this.chartConcentration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartConcentration.Name = "chartConcentration";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Graph";
-            this.chartConcentration.Series.Add(series1);
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Name = "Graph";
+            this.chartConcentration.Series.Add(series5);
             this.chartConcentration.Size = new System.Drawing.Size(784, 267);
             this.chartConcentration.TabIndex = 4;
             this.chartConcentration.Text = "chart1";
@@ -138,8 +140,8 @@ namespace MonitoringSystem
             this.GraphDataGrid.Name = "GraphDataGrid";
             this.GraphDataGrid.ReadOnly = true;
             this.GraphDataGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.GraphDataGrid.Size = new System.Drawing.Size(278, 594);
             this.GraphDataGrid.TabIndex = 5;
             // 
@@ -155,16 +157,16 @@ namespace MonitoringSystem
             // 
             // chartDeviation
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartDeviation.ChartAreas.Add(chartArea2);
+            chartArea6.Name = "ChartArea1";
+            this.chartDeviation.ChartAreas.Add(chartArea6);
             this.chartDeviation.Location = new System.Drawing.Point(297, 384);
             this.chartDeviation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartDeviation.Name = "chartDeviation";
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Graph";
-            this.chartDeviation.Series.Add(series2);
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Name = "Graph";
+            this.chartDeviation.Series.Add(series6);
             this.chartDeviation.Size = new System.Drawing.Size(784, 267);
             this.chartDeviation.TabIndex = 7;
             this.chartDeviation.Text = "chart2";
@@ -201,10 +203,12 @@ namespace MonitoringSystem
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButtonSmthElse);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.degreeUpDown);
             this.groupBox1.Controls.Add(this.radioButtonLagrange);
             this.groupBox1.Controls.Add(this.radioButtonEmpty);
             this.groupBox1.Controls.Add(this.MakeGraphButton);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(1087, 79);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(264, 150);
@@ -212,26 +216,15 @@ namespace MonitoringSystem
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Построение функции";
             // 
-            // radioButtonSmthElse
-            // 
-            this.radioButtonSmthElse.AutoSize = true;
-            this.radioButtonSmthElse.Location = new System.Drawing.Point(6, 77);
-            this.radioButtonSmthElse.Name = "radioButtonSmthElse";
-            this.radioButtonSmthElse.Size = new System.Drawing.Size(82, 21);
-            this.radioButtonSmthElse.TabIndex = 11;
-            this.radioButtonSmthElse.TabStop = true;
-            this.radioButtonSmthElse.Text = "Еще метод";
-            this.radioButtonSmthElse.UseVisualStyleBackColor = true;
-            // 
             // radioButtonLagrange
             // 
             this.radioButtonLagrange.AutoSize = true;
             this.radioButtonLagrange.Location = new System.Drawing.Point(6, 50);
             this.radioButtonLagrange.Name = "radioButtonLagrange";
-            this.radioButtonLagrange.Size = new System.Drawing.Size(206, 21);
+            this.radioButtonLagrange.Size = new System.Drawing.Size(188, 21);
             this.radioButtonLagrange.TabIndex = 10;
             this.radioButtonLagrange.TabStop = true;
-            this.radioButtonLagrange.Text = "Интерполяция методом Лагранжа\r\n";
+            this.radioButtonLagrange.Text = "Метод наименьших квадратов\r\n";
             this.radioButtonLagrange.UseVisualStyleBackColor = true;
             // 
             // radioButtonEmpty
@@ -244,6 +237,39 @@ namespace MonitoringSystem
             this.radioButtonEmpty.TabStop = true;
             this.radioButtonEmpty.Text = "Без аппроксимации";
             this.radioButtonEmpty.UseVisualStyleBackColor = true;
+            // 
+            // degreeUpDown
+            // 
+            this.degreeUpDown.Location = new System.Drawing.Point(128, 76);
+            this.degreeUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.degreeUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.degreeUpDown.Name = "degreeUpDown";
+            this.degreeUpDown.Size = new System.Drawing.Size(120, 24);
+            this.degreeUpDown.TabIndex = 11;
+            this.degreeUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.degreeUpDown.ValueChanged += new System.EventHandler(this.degreeUpDown_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 18);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Степень полинома";
             // 
             // MainWindow
             // 
@@ -273,6 +299,7 @@ namespace MonitoringSystem
             ((System.ComponentModel.ISupportInitialize)(this.chartDeviation)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.degreeUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,9 +321,10 @@ namespace MonitoringSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonSmthElse;
         private System.Windows.Forms.RadioButton radioButtonLagrange;
         private System.Windows.Forms.RadioButton radioButtonEmpty;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown degreeUpDown;
     }
 }
 

@@ -63,8 +63,8 @@ namespace MonitoringSystem
             {
                 MessageBox.Show("Указанный Вами файл содержит разное количество значений Х и Y. Проверьте правильность указанных в файле данных", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
-
+            }
+            groupBox1.Enabled = true;
         }
 
         private void FillingTable()
@@ -102,8 +102,14 @@ namespace MonitoringSystem
             }
             if (radioButtonLagrange.Checked)
             {
-                obj.MakeLagrangeGraph();
+                obj.MakeLSMGraph(Convert.ToInt32(degreeUpDown.Value));
             }
+        }
+
+        private void degreeUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var obj = new CreateGraphs(xCoord, yConcCoord, yDevCoord, chartConcentration, chartDeviation);
+            obj.MakeLSMGraph(Convert.ToInt32(degreeUpDown.Value));
         }
     }
 }

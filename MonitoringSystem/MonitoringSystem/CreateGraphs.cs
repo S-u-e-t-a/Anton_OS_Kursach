@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Approximation;
 
@@ -41,19 +42,54 @@ namespace MonitoringSystem
             }
         }
 
-        public void MakeLagrangeGraph()
+        public void MakeLSMGraph(int degree)
         {
-            var obj = new Interpolation();
-
-            var temp = obj.Calc_Lagrange(xCoord, yConcCoord);
-
-
             concentration.Series["Graph"].Points.Clear();
-            for (int i = 0; i < temp.lagrangeX.Count; i++)
+
+            LSM objCons = new LSM(xCoord, yConcCoord);
+            objCons.Polynomial(degree);
+
+            List<double> newYCons = new List<double>();
+
+            for (int i = 0; i < xCoord.Count; i++)
             {
-                concentration.Series["Graph"].Points.AddXY(temp.lagrangeX[i], temp.lagrangeY[i]);
+                double num = 0.0;
+                for (int j = 0; j < degree; j++)
+                {
+                    num += objCons.Coeff[degree - j] * Math.Pow(xCoord[i], degree - j);
+                }
+
+                newYCons.Add(num);
+                
+            }
+            for (int i = 0; i < xCoord.Count; i++)
+            {
+                concentration.Series["Graph"].Points.AddXY(xCoord[i], newYCons[i]);
             }
 
+
+            deviantion.Series["Graph"].Points.Clear();
+
+            var objDev = new LSM(xCoord, yDevCoord);
+            objDev.Polynomial(degree);
+
+            List<double> newYDev = new List<double>();
+
+            for (int i = 0; i < xCoord.Count; i++)
+            {
+                double num = 0.0;
+                for (int j = 0; j < degree; j++)
+                {
+                    num += objDev.Coeff[degree - j] * Math.Pow(xCoord[i], degree - j);
+                }
+
+                newYDev.Add(num);
+
+            }
+            for (int i = 0; i < xCoord.Count; i++)
+            {
+                deviantion.Series["Graph"].Points.AddXY(xCoord[i], newYDev[i]);
+            }
 
         }
     }
