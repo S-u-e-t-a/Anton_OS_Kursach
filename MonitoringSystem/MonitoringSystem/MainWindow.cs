@@ -28,20 +28,21 @@ namespace MonitoringSystem
             openFileDialogText.Filter = "Текстовые документы (*.txt)|*.txt";
             openFileDialogVideo.Filter = "Видеофайлы (*.mp4, *.wav, *.wmp)|*.mp4;*.wav;*.wmp";
 
-
-
             chartConcentration.Series["Graph"].Points.AddXY(0, 0);
             chartConcentration.ChartAreas[0].AxisX.Minimum = 0;
             chartConcentration.ChartAreas[0].AxisX.Maximum = 100;
             chartConcentration.ChartAreas[0].AxisY.Minimum = 0;
             chartConcentration.ChartAreas[0].AxisY.Maximum = 100;
-
+            chartConcentration.ChartAreas[0].AxisX.Title = "Расход, кг/сек";
+            chartConcentration.ChartAreas[0].AxisY.Title = "Концентрация, Кмоль/м^3";
 
             chartDeviation.Series["Graph"].Points.AddXY(0, 0);
             chartDeviation.ChartAreas[0].AxisX.Minimum = 0;
             chartDeviation.ChartAreas[0].AxisX.Maximum = 100;
             chartDeviation.ChartAreas[0].AxisY.Minimum = 0;
             chartDeviation.ChartAreas[0].AxisY.Maximum = 100;
+            chartDeviation.ChartAreas[0].AxisX.Title = "Расход, кг/сек";
+            chartDeviation.ChartAreas[0].AxisY.Title = "Отклонение уровня, мм";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -89,6 +90,10 @@ namespace MonitoringSystem
             }
 
             GraphDataGrid.Columns["x"].ReadOnly = true;
+            foreach (DataGridViewColumn column in GraphDataGrid.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void SetupGraphs()
@@ -121,7 +126,7 @@ namespace MonitoringSystem
             }
         }
 
-        private void degreeUpDown_ValueChanged(object sender, EventArgs e)
+        private void DegreeUpDown_ValueChanged(object sender, EventArgs e)
         {
             var obj = new CreateGraphs(xCoord, yConcCoord, yDevCoord, chartConcentration, chartDeviation, groupBoxCreateGraph);
             obj.MakeLSMGraph(Convert.ToInt32(degreeUpDown.Value));
@@ -148,11 +153,11 @@ namespace MonitoringSystem
                 return;
             }
 
-            if(GraphDataGrid.CurrentCell.OwningColumn.Name == "y1")
+            if (GraphDataGrid.CurrentCell.OwningColumn.Name == "y1")
             {
                 yConcCoord[GraphDataGrid.CurrentCell.RowIndex] = newValue;
             }
-            else if(GraphDataGrid.CurrentCell.OwningColumn.Name == "y2")
+            else if (GraphDataGrid.CurrentCell.OwningColumn.Name == "y2")
             {
                 yDevCoord[GraphDataGrid.CurrentCell.RowIndex] = newValue;
             }
@@ -164,6 +169,18 @@ namespace MonitoringSystem
         private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start("HelpOS.chm");
+            int prC = 0;
+            foreach (Process pr in Process.GetProcesses())
+            {
+                if (pr.ProcessName == "hh")
+                {
+                    prC++;
+                    if (prC > 1)
+                    {
+                        pr.Kill();
+                    }
+                }                
+            }
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,7 +189,7 @@ namespace MonitoringSystem
             about.ShowDialog();
         }
 
-        private void buttonOpenVideo_Click(object sender, EventArgs e)
+        private void ButtonOpenVideo_Click(object sender, EventArgs e)
         {
             if (openFileDialogVideo.ShowDialog() == DialogResult.Cancel)
                 return;

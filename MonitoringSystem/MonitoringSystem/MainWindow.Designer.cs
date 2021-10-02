@@ -252,7 +252,7 @@ namespace MonitoringSystem
             0,
             0,
             0});
-            this.degreeUpDown.ValueChanged += new System.EventHandler(this.degreeUpDown_ValueChanged);
+            this.degreeUpDown.ValueChanged += new System.EventHandler(this.DegreeUpDown_ValueChanged);
             // 
             // radioButtonLagrange
             // 
@@ -284,7 +284,7 @@ namespace MonitoringSystem
             this.buttonOpenVideo.TabIndex = 13;
             this.buttonOpenVideo.Text = "Открыть видеозапись";
             this.buttonOpenVideo.UseVisualStyleBackColor = true;
-            this.buttonOpenVideo.Click += new System.EventHandler(this.buttonOpenVideo_Click);
+            this.buttonOpenVideo.Click += new System.EventHandler(this.ButtonOpenVideo_Click);
             // 
             // MainWindow
             // 
