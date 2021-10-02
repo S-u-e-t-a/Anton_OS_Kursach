@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Approximation
 {
@@ -20,8 +21,7 @@ namespace Approximation
         // Среднеквадратичное отклонение
         public double? Delta { get { return getDelta(); } }
 
-        // Конструктор класса. Примает 2 массива значений х и у
-        // Длина массивов должна быть одинакова, иначе нужно обработать исключение
+        // Конструктор класса. Принимает 2 листа значений х и у
         public LSM(List<double> x, List<double> y)
         {
             X = new double[x.Count];
@@ -34,13 +34,10 @@ namespace Approximation
             }
         }
 
-        // Собственно, Метод Наименьших Квадратов
+        // Метод Наименьших Квадратов
         // В качестве базисных функций используются степенные функции y = a0 * x^0 + a1 * x^1 + ... + am * x^m
         public void Polynomial(int m)
         {
-            if (m <= 0) throw new ArgumentException("Порядок полинома должен быть больше 0");
-            if (m >= X.Length) throw new ArgumentException("Порядок полинома должен быть на много меньше количества точек!");
-
             // массив для хранения значений базисных функций
             double[,] basic = new double[X.Length, m + 1];
 
@@ -48,23 +45,16 @@ namespace Approximation
             for (int i = 0; i < basic.GetLength(0); i++)
                 for (int j = 0; j < basic.GetLength(1); j++)
                     basic[i, j] = Math.Pow(X[i], j);
-
             // Создание матрицы из массива значений базисных функций(МЗБФ)
             Matrix basicFuncMatr = new Matrix(basic);
-
             // Транспонирование МЗБФ
             Matrix transBasicFuncMatr = basicFuncMatr.Transposition();
-
             // Произведение транспонированного  МЗБФ на МЗБФ
             Matrix lambda = transBasicFuncMatr * basicFuncMatr;
-
             // Произведение транспонированого МЗБФ на следящую матрицу 
             Matrix beta = transBasicFuncMatr * new Matrix(Y);
-
             // Решение СЛАУ путем умножения обратной матрицы лямбда на бету
             Matrix a = lambda.InverseMatrix() * beta;
-
-            // Присвоение значения полю класса 
             coeff = new double[a.Row];
             for (int i = 0; i < coeff.Length; i++)
             {

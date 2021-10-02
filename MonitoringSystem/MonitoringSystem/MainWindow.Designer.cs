@@ -30,11 +30,11 @@ namespace MonitoringSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InputDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,17 +49,18 @@ namespace MonitoringSystem
             this.MakeGraphButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCreateGraph = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.degreeUpDown = new System.Windows.Forms.NumericUpDown();
             this.radioButtonLagrange = new System.Windows.Forms.RadioButton();
             this.radioButtonEmpty = new System.Windows.Forms.RadioButton();
-            this.degreeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
+            this.buttonOpenVideo = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartConcentration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraphDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDeviation)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxCreateGraph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.degreeUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,17 +96,19 @@ namespace MonitoringSystem
             this.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem";
             this.InfoToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.InfoToolStripMenuItem.Text = "Справка";
+            this.InfoToolStripMenuItem.Click += new System.EventHandler(this.InfoToolStripMenuItem_Click);
             // 
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.AboutToolStripMenuItem.Text = "О программе";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // axWindowsMediaPlayer
             // 
             this.axWindowsMediaPlayer.Enabled = true;
-            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(1087, 468);
+            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(1087, 431);
             this.axWindowsMediaPlayer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.axWindowsMediaPlayer.Name = "axWindowsMediaPlayer";
             this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
@@ -114,16 +117,16 @@ namespace MonitoringSystem
             // 
             // chartConcentration
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartConcentration.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartArea1";
+            this.chartConcentration.ChartAreas.Add(chartArea1);
             this.chartConcentration.Location = new System.Drawing.Point(297, 79);
             this.chartConcentration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartConcentration.Name = "chartConcentration";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Name = "Graph";
-            this.chartConcentration.Series.Add(series5);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Graph";
+            this.chartConcentration.Series.Add(series1);
             this.chartConcentration.Size = new System.Drawing.Size(784, 267);
             this.chartConcentration.TabIndex = 4;
             this.chartConcentration.Text = "chart1";
@@ -138,12 +141,13 @@ namespace MonitoringSystem
             this.GraphDataGrid.Location = new System.Drawing.Point(13, 57);
             this.GraphDataGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GraphDataGrid.Name = "GraphDataGrid";
-            this.GraphDataGrid.ReadOnly = true;
             this.GraphDataGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GraphDataGrid.Size = new System.Drawing.Size(278, 594);
             this.GraphDataGrid.TabIndex = 5;
+            this.GraphDataGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GraphDataGrid_CellBeginEdit);
+            this.GraphDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GraphDataGrid_CellEndEdit);
             // 
             // label1
             // 
@@ -157,16 +161,16 @@ namespace MonitoringSystem
             // 
             // chartDeviation
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartDeviation.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chartDeviation.ChartAreas.Add(chartArea2);
             this.chartDeviation.Location = new System.Drawing.Point(297, 384);
             this.chartDeviation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartDeviation.Name = "chartDeviation";
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Name = "Graph";
-            this.chartDeviation.Series.Add(series6);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Graph";
+            this.chartDeviation.Series.Add(series2);
             this.chartDeviation.Size = new System.Drawing.Size(784, 267);
             this.chartDeviation.TabIndex = 7;
             this.chartDeviation.Text = "chart2";
@@ -201,42 +205,30 @@ namespace MonitoringSystem
             this.label3.TabIndex = 10;
             this.label3.Text = "Зависимость отклонения от расхода";
             // 
-            // groupBox1
+            // groupBoxCreateGraph
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.degreeUpDown);
-            this.groupBox1.Controls.Add(this.radioButtonLagrange);
-            this.groupBox1.Controls.Add(this.radioButtonEmpty);
-            this.groupBox1.Controls.Add(this.MakeGraphButton);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(1087, 79);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(264, 150);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Построение функции";
+            this.groupBoxCreateGraph.Controls.Add(this.label4);
+            this.groupBoxCreateGraph.Controls.Add(this.degreeUpDown);
+            this.groupBoxCreateGraph.Controls.Add(this.radioButtonLagrange);
+            this.groupBoxCreateGraph.Controls.Add(this.radioButtonEmpty);
+            this.groupBoxCreateGraph.Controls.Add(this.MakeGraphButton);
+            this.groupBoxCreateGraph.Enabled = false;
+            this.groupBoxCreateGraph.Location = new System.Drawing.Point(1087, 79);
+            this.groupBoxCreateGraph.Name = "groupBoxCreateGraph";
+            this.groupBoxCreateGraph.Size = new System.Drawing.Size(264, 150);
+            this.groupBoxCreateGraph.TabIndex = 11;
+            this.groupBoxCreateGraph.TabStop = false;
+            this.groupBoxCreateGraph.Text = "Построение функции";
             // 
-            // radioButtonLagrange
+            // label4
             // 
-            this.radioButtonLagrange.AutoSize = true;
-            this.radioButtonLagrange.Location = new System.Drawing.Point(6, 50);
-            this.radioButtonLagrange.Name = "radioButtonLagrange";
-            this.radioButtonLagrange.Size = new System.Drawing.Size(188, 21);
-            this.radioButtonLagrange.TabIndex = 10;
-            this.radioButtonLagrange.TabStop = true;
-            this.radioButtonLagrange.Text = "Метод наименьших квадратов\r\n";
-            this.radioButtonLagrange.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonEmpty
-            // 
-            this.radioButtonEmpty.AutoSize = true;
-            this.radioButtonEmpty.Location = new System.Drawing.Point(6, 23);
-            this.radioButtonEmpty.Name = "radioButtonEmpty";
-            this.radioButtonEmpty.Size = new System.Drawing.Size(130, 21);
-            this.radioButtonEmpty.TabIndex = 9;
-            this.radioButtonEmpty.TabStop = true;
-            this.radioButtonEmpty.Text = "Без аппроксимации";
-            this.radioButtonEmpty.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 18);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Степень полинома";
             // 
             // degreeUpDown
             // 
@@ -261,22 +253,44 @@ namespace MonitoringSystem
             0});
             this.degreeUpDown.ValueChanged += new System.EventHandler(this.degreeUpDown_ValueChanged);
             // 
-            // label4
+            // radioButtonLagrange
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 18);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Степень полинома";
+            this.radioButtonLagrange.AutoSize = true;
+            this.radioButtonLagrange.Location = new System.Drawing.Point(6, 50);
+            this.radioButtonLagrange.Name = "radioButtonLagrange";
+            this.radioButtonLagrange.Size = new System.Drawing.Size(188, 21);
+            this.radioButtonLagrange.TabIndex = 10;
+            this.radioButtonLagrange.TabStop = true;
+            this.radioButtonLagrange.Text = "Метод наименьших квадратов\r\n";
+            this.radioButtonLagrange.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonEmpty
+            // 
+            this.radioButtonEmpty.AutoSize = true;
+            this.radioButtonEmpty.Location = new System.Drawing.Point(6, 23);
+            this.radioButtonEmpty.Name = "radioButtonEmpty";
+            this.radioButtonEmpty.Size = new System.Drawing.Size(130, 21);
+            this.radioButtonEmpty.TabIndex = 9;
+            this.radioButtonEmpty.TabStop = true;
+            this.radioButtonEmpty.Text = "Без аппроксимации";
+            this.radioButtonEmpty.UseVisualStyleBackColor = true;
+            // 
+            // buttonOpenVideo
+            // 
+            this.buttonOpenVideo.Location = new System.Drawing.Point(1087, 621);
+            this.buttonOpenVideo.Name = "buttonOpenVideo";
+            this.buttonOpenVideo.Size = new System.Drawing.Size(264, 30);
+            this.buttonOpenVideo.TabIndex = 13;
+            this.buttonOpenVideo.Text = "Открыть видеозапись";
+            this.buttonOpenVideo.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1363, 664);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonOpenVideo);
+            this.Controls.Add(this.groupBoxCreateGraph);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chartDeviation);
@@ -286,10 +300,11 @@ namespace MonitoringSystem
             this.Controls.Add(this.axWindowsMediaPlayer);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Noto Sans Cond", 9F, System.Drawing.FontStyle.Bold);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Мониторинг контролиемых технологических параметров";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -297,8 +312,8 @@ namespace MonitoringSystem
             ((System.ComponentModel.ISupportInitialize)(this.chartConcentration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraphDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDeviation)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxCreateGraph.ResumeLayout(false);
+            this.groupBoxCreateGraph.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.degreeUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,11 +335,12 @@ namespace MonitoringSystem
         private System.Windows.Forms.Button MakeGraphButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCreateGraph;
         private System.Windows.Forms.RadioButton radioButtonLagrange;
         private System.Windows.Forms.RadioButton radioButtonEmpty;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown degreeUpDown;
+        private System.Windows.Forms.Button buttonOpenVideo;
     }
 }
 
