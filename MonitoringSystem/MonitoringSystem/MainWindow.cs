@@ -25,6 +25,10 @@ namespace MonitoringSystem
         {
             InitializeComponent();
             MaximizeBox = false;
+            openFileDialogText.Filter = "Текстовые документы (*.txt)|*.txt";
+            openFileDialogVideo.Filter = "Видеофайлы (*.mp4, *.wav, *.wmp)|*.mp4;*.wav;*.wmp";
+
+
 
             chartConcentration.Series["Graph"].Points.AddXY(0, 0);
             chartConcentration.ChartAreas[0].AxisX.Minimum = 0;
@@ -49,12 +53,12 @@ namespace MonitoringSystem
 
         private void InputDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+            if (openFileDialogText.ShowDialog() == DialogResult.Cancel)
                 return;
-            string fileInputPath = openFileDialog.FileName;
+            string fileInputPath = openFileDialogText.FileName;
             WorkWithFiles workWithFiles = new WorkWithFiles();
             workWithFiles.InputFromFile(fileInputPath);
-            openFileDialog.FileName = string.Empty;
+            openFileDialogText.FileName = string.Empty;
             xCoord = workWithFiles.xCoord;
             yConcCoord = workWithFiles.y1Coord;
             yDevCoord = workWithFiles.y2Coord;
@@ -166,6 +170,14 @@ namespace MonitoringSystem
         {
             var about = new About();
             about.ShowDialog();
+        }
+
+        private void buttonOpenVideo_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogVideo.ShowDialog() == DialogResult.Cancel)
+                return;
+            string fileInputPath = openFileDialogVideo.FileName;
+            axWindowsMediaPlayer.URL = fileInputPath;
         }
     }
 }

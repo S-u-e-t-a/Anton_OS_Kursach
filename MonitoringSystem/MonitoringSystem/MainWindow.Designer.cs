@@ -30,11 +30,11 @@ namespace MonitoringSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InputDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +42,7 @@ namespace MonitoringSystem
             this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.chartConcentration = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogText = new System.Windows.Forms.OpenFileDialog();
             this.GraphDataGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.chartDeviation = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,6 +55,7 @@ namespace MonitoringSystem
             this.radioButtonLagrange = new System.Windows.Forms.RadioButton();
             this.radioButtonEmpty = new System.Windows.Forms.RadioButton();
             this.buttonOpenVideo = new System.Windows.Forms.Button();
+            this.openFileDialogVideo = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartConcentration)).BeginInit();
@@ -117,16 +118,16 @@ namespace MonitoringSystem
             // 
             // chartConcentration
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartConcentration.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chartConcentration.ChartAreas.Add(chartArea3);
             this.chartConcentration.Location = new System.Drawing.Point(297, 79);
             this.chartConcentration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartConcentration.Name = "chartConcentration";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Graph";
-            this.chartConcentration.Series.Add(series1);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Graph";
+            this.chartConcentration.Series.Add(series3);
             this.chartConcentration.Size = new System.Drawing.Size(784, 267);
             this.chartConcentration.TabIndex = 4;
             this.chartConcentration.Text = "chart1";
@@ -142,8 +143,8 @@ namespace MonitoringSystem
             this.GraphDataGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GraphDataGrid.Name = "GraphDataGrid";
             this.GraphDataGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.GraphDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.GraphDataGrid.Size = new System.Drawing.Size(278, 594);
             this.GraphDataGrid.TabIndex = 5;
             this.GraphDataGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GraphDataGrid_CellBeginEdit);
@@ -161,16 +162,16 @@ namespace MonitoringSystem
             // 
             // chartDeviation
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartDeviation.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.chartDeviation.ChartAreas.Add(chartArea4);
             this.chartDeviation.Location = new System.Drawing.Point(297, 384);
             this.chartDeviation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chartDeviation.Name = "chartDeviation";
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Graph";
-            this.chartDeviation.Series.Add(series2);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Name = "Graph";
+            this.chartDeviation.Series.Add(series4);
             this.chartDeviation.Size = new System.Drawing.Size(784, 267);
             this.chartDeviation.TabIndex = 7;
             this.chartDeviation.Text = "chart2";
@@ -283,6 +284,7 @@ namespace MonitoringSystem
             this.buttonOpenVideo.TabIndex = 13;
             this.buttonOpenVideo.Text = "Открыть видеозапись";
             this.buttonOpenVideo.UseVisualStyleBackColor = true;
+            this.buttonOpenVideo.Click += new System.EventHandler(this.buttonOpenVideo_Click);
             // 
             // MainWindow
             // 
@@ -327,7 +329,7 @@ namespace MonitoringSystem
         private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartConcentration;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialogText;
         private System.Windows.Forms.DataGridView GraphDataGrid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDeviation;
@@ -341,6 +343,7 @@ namespace MonitoringSystem
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown degreeUpDown;
         private System.Windows.Forms.Button buttonOpenVideo;
+        private System.Windows.Forms.OpenFileDialog openFileDialogVideo;
     }
 }
 
