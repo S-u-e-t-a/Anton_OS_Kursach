@@ -31,7 +31,7 @@ namespace MonitoringSystem
             }
             catch (FormatException)
             {
-                MessageBox.Show("Указанный Вами файл символы, отличные от чисел. Проверьте правильность указанных в файле данных", "Ошибка",
+                MessageBox.Show("Указанный Вами файл содержит символы, отличные от чисел и знака запятой. Проверьте правильность указанных в файле данных", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

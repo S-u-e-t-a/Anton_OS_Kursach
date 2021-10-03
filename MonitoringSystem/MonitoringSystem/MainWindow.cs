@@ -54,6 +54,7 @@ namespace MonitoringSystem
 
         private void InputDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            groupBoxCreateGraph.Enabled = false;
             if (openFileDialogText.ShowDialog() == DialogResult.Cancel)
                 return;
             string fileInputPath = openFileDialogText.FileName;
@@ -70,10 +71,12 @@ namespace MonitoringSystem
             }
             else
             {
+                groupBoxCreateGraph.Enabled = false;
                 MessageBox.Show("Указанный Вами файл содержит разное количество значений Х и Y. Проверьте правильность указанных в файле данных", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            groupBoxCreateGraph.Enabled = true;
+            if(GraphDataGrid.Rows.Count > 1) groupBoxCreateGraph.Enabled = true;
+            else groupBoxCreateGraph.Enabled = false;
         }
 
         private void FillingTable()
