@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace MonitoringSystem
         private void Form1_Load(object sender, EventArgs e)
         {
             GraphDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            axWindowsMediaPlayer.URL = @"stock.mp4";
+            axWindowsMediaPlayer.URL = @"Source\stock.mp4";
             axWindowsMediaPlayer.Ctlcontrols.play();
         }
 
@@ -171,7 +172,7 @@ namespace MonitoringSystem
 
         private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("HelpOS.chm");
+            Process.Start(@"Source\HelpOS.chm");
             int prC = 0;
             foreach (Process pr in Process.GetProcesses())
             {
