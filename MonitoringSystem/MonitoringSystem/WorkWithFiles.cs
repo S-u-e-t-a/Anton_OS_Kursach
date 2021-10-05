@@ -28,13 +28,33 @@ namespace MonitoringSystem
 
                 arr = System.IO.File.ReadAllLines(path).Skip(2).First();
                 y2Coord = arr.Split(separator, StringSplitOptions.RemoveEmptyEntries).Select(n => double.Parse(n)).ToList();
+                
+                if(xCoord.Count < 5 || y1Coord.Count < 5 || y2Coord.Count < 5)
+                {
+                    throw new CountParametrException();
+                }
             }
             catch (FormatException)
             {
                 MessageBox.Show("Указанный Вами файл содержит символы, отличные от чисел и знака запятой. Проверьте правильность указанных в файле данных", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Указанный Вами файл содержит недостаточно данных. Проверьте правильность указанных в файле данных", "Ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (CountParametrException)
+            {
+                MessageBox.Show("Количество элементов в каждой строке должно быть более 5. Проверьте правильность указанных в файле данных", "Ошибка",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+        }
+
+        public class CountParametrException : ApplicationException
+        {
+            public CountParametrException() : base() { }
         }
     }
 }
